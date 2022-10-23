@@ -12,7 +12,7 @@ function PlayerController({action,setAction}) {
     return (
         <>
         <group ref={group}>
-            <Player position={[0,45,1]}  action={action} setAction={setAction} >
+            <Player position={[0,0,0]}  action={action} setAction={setAction} >
             
             </Player></group>
         <CameraController target={position} />

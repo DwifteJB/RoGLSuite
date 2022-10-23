@@ -1,7 +1,9 @@
 
 import React, { useRef,useEffect } from 'react'
+import { extend } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
-
+import { LineSegments } from 'three'
+extend(LineSegments)
 function Player(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/rigged-anims.glb')
@@ -13,13 +15,12 @@ function Player(props) {
     }
 
     actions[props.action].play()
-  },[props.action,actions]);
+  },[props.action,actions,PreviousAction]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Walking" position={[0.02, 1.79, -0.03]} rotation={[0,0,0]}>
           <primitive object={nodes.Master} />
-          
           <skinnedMesh name="R15101" geometry={nodes.R15101.geometry} material={materials.Tex} skeleton={nodes.R15101.skeleton} />
           <skinnedMesh name="R151010" geometry={nodes.R151010.geometry} material={materials.Tex} skeleton={nodes.R151010.skeleton} />
           <skinnedMesh name="R151011" geometry={nodes.R151011.geometry} material={materials.Tex} skeleton={nodes.R151011.skeleton} />

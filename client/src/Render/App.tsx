@@ -1,4 +1,5 @@
 import React, {useState, Suspense, useEffect} from 'react'
+
 import {CircularProgress, Button,ButtonGroup, Card, CardHeader, Avatar,ThemeProvider, createTheme} from '@mui/material';
 import { Canvas } from '@react-three/fiber'
 import { useProgress, Html, useAnimations } from '@react-three/drei'
@@ -25,8 +26,7 @@ function App() {
         <ThemeProvider  theme={darkTheme}>
         
         <Canvas>
-        
-          <hemisphereLight intensity={0.35} />
+          <hemisphereLight intensity={0.25} />
             
           <SkyBox />
           <Suspense fallback={<Loader />}>
@@ -37,6 +37,20 @@ function App() {
 
         </Canvas>
 
+        <div style={{ position: "absolute",
+              marginLeft: "auto",
+              marginRight: "auto",
+              left: "0",
+              right: "0",
+              bottom: "10px",
+              textAlign: "center",
+              }}>
+              <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                  <Button color="error" onClick={() => {setAnimation("Walk")}}>Walk</Button>
+                  <Button color="error" onClick={() => {setAnimation("Idle")}}>Idle</Button>
+                  <Button color="error" onClick={() => {setAnimation("ChkDance")}}>Chicken Dance</Button>
+              </ButtonGroup>
+          </div>
 
           <div style={{ position: "absolute",
               marginLeft: "auto",
