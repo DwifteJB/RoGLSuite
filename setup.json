@@ -1,3 +1,8 @@
 {
-    "Server_Key": "StrandedServerKeyqwq"
+    "Server_Key": "StrandedServerKeyqwq",
+    "SiteURL": "http://localhost:3000/",
+    "DiscordLogin": {
+        "ClientID": "1033792598344732693",
+        "ClientSecret": "ZoQ30pspa4PXC0RaBixVY44yguCLzEJA"
+    }
 }

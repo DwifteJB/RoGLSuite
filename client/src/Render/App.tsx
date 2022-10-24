@@ -19,7 +19,6 @@ function Loader() {
 }
 function App() {
   const [Animation, setAnimation] = useState("Idle")
-  const [PlayerPosition,setPosition] = useState([0,0,0])
 
     return (
       <div style={{width: "100vw", height: "100vh"}}>
