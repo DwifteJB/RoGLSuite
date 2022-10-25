@@ -1,7 +1,8 @@
 import * as React from 'react';
-//#7289da
+import './css/SignIn.css';
 import { Canvas } from '@react-three/fiber'
 import PlayerController from './PlayerController';
+
 
 import Avatar from '@mui/material/Avatar';
 import Link from '@mui/material/Link';
@@ -44,57 +45,33 @@ const darkTheme = createTheme({
 function SignIn() {
     const [Animation, setAnimation] = React.useState("ChkDance")
     return (
-    <ThemeProvider theme={darkTheme} sx={{backgroundImage:"url(https://c4.wallpaperflare.com/wallpaper/723/668/835/jojos-bizarre-adventure-wallpaper-preview.jpg)"}}>
-
-        <Container component="main" maxWidth="xs" s>
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-            <div style={{position: "absolute",
-                left: "0px",
-                width: "50%",
-                height: "100%",
-                top: "0px",
-                textAlign: "center"
-            }}>
-            <Canvas>
-                <ambientLight />
-                <PlayerController action={Animation} setAction={setAnimation} ></PlayerController>
-            </Canvas>
-            </div>
-            <div style={{position: "absolute",
-                left: "50%",
-                width: "50%",
-                height: "100%",
-                top: "0px",
-                textAlign: "center"
-            }}>
-            <Canvas>
-                <ambientLight />
-                <PlayerController action={Animation} setAction={setAnimation} ></PlayerController>
-            </Canvas>
-            </div>
-
-          <Typography component="h1" variant="h5">
-            RoGL Suite
-          </Typography>
-          <Box sx={{ m: 5}} />
-          <Button href='https://discord.com/api/oauth2/authorize?client_id=1033792598344732693&redirect_uri=http%3A%2F%2F31.51.20.136%3A5000%2Fapi%2Fdiscord&response_type=code&scope=identify' style={{  margin: "0",
-  position: "absolute",
-  top: "50%",
-  msTransform: "translateY(-50%)",
-  transform: "translateY(-50%)",}} variant="contained" sx={{bgcolor:'secondary.main'}}>
-  Sign in with discord
-</Button>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container></ThemeProvider>
+    <ThemeProvider theme={darkTheme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box sx={{marginTop: 8,display: 'flex',flexDirection: 'column',alignItems: 'center',}} >
+              <div className='HumanoidWrapper1'>
+                <Canvas>
+                    <ambientLight />
+                    <PlayerController action={Animation} setAction={setAnimation} ></PlayerController>
+                </Canvas>
+              </div>
+              <div className='HumanoidWrapper2'>
+                <Canvas>
+                    <ambientLight />
+                    <PlayerController action={Animation} setAction={setAnimation} ></PlayerController>
+                </Canvas>
+              </div>
+              <Typography component="h1" variant="h5">
+                RoGL Suite
+              </Typography>
+              <Box sx={{ m: 5}} />
+                <Button href='d9ont expose ur ip dwifte' className="DiscordButton" variant="contained" sx={{bgcolor:'secondary.main'}}>
+                  Sign in with discord
+                </Button>
+              </Box>
+              <Copyright sx={{ mt: 8, mb: 4 }} />
+        </Container>
+      </ThemeProvider>
     )
 }
 export default SignIn

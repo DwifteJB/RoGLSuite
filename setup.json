@@ -1,8 +1,25 @@
 {
     "Server_Key": "StrandedServerKeyqwq",
-    "SiteURL": "http://localhost:3000/",
-    "DiscordLogin": {
-        "ClientID": "1033792598344732693",
-        "ClientSecret": "ZoQ30pspa4PXC0RaBixVY44yguCLzEJA"
+    "SiteURL": "http://xxx.xxx.xxx.xxx:xxxx",
+    "DiscordOAuth": {
+        "ClientID": "xx",
+        "ClientSecret": "xx"
+    },
+    "Logging": { 
+        "Discord": {
+            "WebhookURL": "https://discord.com/api/webhooks/",
+            "Settings": {
+                "Logins": true,
+                "PositionUpdates": true
+            },
+            "ShowIPAddress": false
+       },
+        "Local": {
+            "Settings": {
+                "Logins": true,
+                "PositionUpdates": true,
+                "LogDirectory": "../Logs"
+            }
+        }
     }
 }
