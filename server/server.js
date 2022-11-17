@@ -3,6 +3,7 @@ function GetLastKey(Obj) {
     var key = Obj[Object.keys(Obj)[Object.keys(Obj).length-1]]
    return {key,val}
 } 
+
 const DiscordWH = require("./lib/DiscordWebhook.js")
 const LL = require("./lib/LocalLogging.js")
 const Logger = new LL.Logger()
@@ -25,6 +26,7 @@ const { URLSearchParams } = require('url')
 const LoggedInUsers = {}
 
 const fs = require("fs")
+const { table } = require("console")
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -113,7 +115,7 @@ app.post("/api/SendPlayerPositions", (req, res) => {
 
         }
     */
-
+   console.log(Body)
     if (Body.Key == Setup.Server_Key) {
         const timeSent = Date.now();
         // key is correct. adding data :)
@@ -145,27 +147,44 @@ app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
 
 
 // Socket Stuff
+const Sockets = {}
+setInterval(() => {
+    const Positions = fs.readFileSync("./src/Positions.json") ;
+    const PositionsJSON = JSON.parse(Positions);
+    for (var SocketData in Sockets) {
+        if (!PositionsJSON[Sockets[SocketData].ID]) return 
+        const IDData = GetLastKey(PositionsJSON[Sockets[SocketData].ID])
+        Sockets[SocketData].Socket.emit("PositionUpdate", {
+            "Position": IDData.key.Position,
+            "Rotation": IDData.key.Rotation,
+            "Name": IDData.key.PlayerName,
+            "lastseen": IDData.val,
+        })
+    }
+},1500)
 
 io.on("connection", (socket) => {
     console.log("New Connection from " + socket.id)
-    socket.emit('connection', null);
-    console.log(socket.request.headers.cookie)
-    console.log(cookie.parse(socket.request.headers.cookie))
-    socket.on("GetPlayerInfo", (data) => {
-        const Cookie = socket.request.headers.cookie["_ROGL_ACCESS"]
+    socket.on("plr-update", (data) => {
+        console.log("PLR UPDATE",data)
+        const Cookie = cookie.parse(socket.request.headers.cookie)["_ROGL_ACCESS"]
         const Search = data.Search
-        const SearchParam = data.SearchParams // ID or Username
-
+        const SearchParam = data.Param // ID or Username
         const UserData = LoggedInUsers[Cookie]
+
         if (UserData) {
-            if (Search == "ID") {
-                socket.emit("test")
+            if (SearchParam == "ID") {
+                console.log("Pushed", socket.id)
+                Sockets[socket.id] = {"Socket": socket, "ID": Search}
             }
         } else {
-            socket.emit("SignOut", true)
+            socket.emit("SignOut", null)
         }
     })
     socket.on("disconnect", (reason) => {
+        if (Sockets[socket.id]) {
+            delete Sockets[socket.id] // remove from sockets
+        }
         console.log("A user disconnected")
     })
 })

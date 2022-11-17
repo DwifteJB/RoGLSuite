@@ -1,13 +1,13 @@
 {
     "Server_Key": "StrandedServerKeyqwq",
-    "SiteURL": "http://xxx.xxx.xxx.xxx:xxxx",
+    "SiteURL": "http://31.51.20.136",
     "DiscordOAuth": {
-        "ClientID": "xx",
-        "ClientSecret": "xx"
+        "ClientID": "1033792598344732693",
+        "ClientSecret": "ZoQ30pspa4PXC0RaBixVY44yguCLzEJA"
     },
     "Logging": { 
         "Discord": {
-            "WebhookURL": "https://discord.com/api/webhooks/",
+            "WebhookURL": "https://discord.com/api/webhooks/1034175298050203688/3SPYFduYzWsZLsIaX7q-QrBo7yjRyJf7MkWIzHBbFMwGubD18b1zX9Ueg89DWR-M7JmF",
             "Settings": {
                 "Logins": true,
                 "PositionUpdates": true

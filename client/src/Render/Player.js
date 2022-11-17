@@ -1,23 +1,26 @@
 
 import React, { useRef,useEffect } from 'react'
-import { extend } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
-import { LineSegments } from 'three'
-extend(LineSegments)
-function Player(props) {
+import {animated, useSpring} from '@react-spring/three'
+
+function Player({action,setAction,PLRPOS,PLRROT}) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/rigged-anims.glb')
   const { actions } = useAnimations(animations, group)
-  const PreviousAction = usePrevious(props.action)
+  const { position } = useSpring({
+    position: PLRPOS,
+    config: {duration:150}
+  });
+  const PreviousAction = usePrevious(action)
   useEffect(() => {
     if (PreviousAction) {
       actions[PreviousAction].stop()
     }
 
-    actions[props.action].play()
-  },[props.action,actions,PreviousAction]);
+    actions[action].play()
+  },[action,actions]);
   return (
-    <group ref={group} {...props} dispose={null}>
+    <animated.group ref={group} rotation={PLRROT} position={position} dispose={null}>
       <group name="Scene">
         <group name="Walking" position={[0.02, 1.79, -0.03]} rotation={[0,0,0]}>
           <primitive object={nodes.Master} />
@@ -38,7 +41,7 @@ function Player(props) {
           <skinnedMesh name="R15109" geometry={nodes.R15109.geometry} material={materials.Tex} skeleton={nodes.R15109.skeleton} />
         </group>
       </group>
-    </group>
+    </animated.group>
   )
 }
 
