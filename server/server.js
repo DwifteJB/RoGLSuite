@@ -20,7 +20,7 @@ const cookieParser = require('cookie-parser');
 
 const cors = require('cors');
 
-const Setup = require("../setup.json")
+const Setup = require("./setup.json")
 const axios = require("axios")
 const { URLSearchParams } = require('url')
 const LoggedInUsers = {}
@@ -35,7 +35,8 @@ app.use(cookieParser());
 app.use(cors())
 app.use(express.static('build'));
 
-const server = app.listen(80,()=> {
+const port = parseInt(process.env.PORT) || 80
+const server = app.listen(port,()=> {
     console.log(`RoGL Suite is running! Created by DwifteJB\n\nServer is hosted at: ${Setup.SiteURL}`)
 })
 

@@ -1,6 +1,6 @@
 {
     "Server_Key": "StrandedServerKeyqwq",
-    "SiteURL": "http://31.51.20.136",
+    "SiteURL": "https://roglsuite-kffnaoc4fa-oa.a.run.app",
     "DiscordOAuth": {
         "ClientID": "1033792598344732693",
         "ClientSecret": "ZoQ30pspa4PXC0RaBixVY44yguCLzEJA"
@@ -18,7 +18,7 @@
             "Settings": {
                 "Logins": true,
                 "PositionUpdates": true,
-                "LogDirectory": "../Logs"
+                "LogDirectory": "./Logs"
             }
         }
     }

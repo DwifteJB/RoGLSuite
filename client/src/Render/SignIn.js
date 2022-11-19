@@ -13,6 +13,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -65,7 +66,7 @@ function SignIn() {
                 RoGL Suite
               </Typography>
               <Box sx={{ m: 5}} />
-                <Button href='https://discord.com/api/oauth2/authorize?client_id=1033792598344732693&redirect_uri=http%3A%2F%2F31.51.20.136%2Fapi%2Fdiscord&response_type=code&scope=identify' className="DiscordButton" variant="contained" sx={{bgcolor:'secondary.main'}}>
+                <Button href={"https://discord.com/api/oauth2/authorize?client_id=1033792598344732693&redirect_uri=" + process.env.PUBLIC_URL + "%2Fapi%2Fdiscord&response_type=code&scope=identify"} className="DiscordButton" variant="contained" sx={{bgcolor:'secondary.main'}}>
                   Sign in with discord
                 </Button>
               </Box>

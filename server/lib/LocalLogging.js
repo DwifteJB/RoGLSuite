@@ -1,4 +1,4 @@
-const LoggingSettings = require('../../setup.json').Logging;
+const LoggingSettings = require('../setup.json').Logging;
 const fs = require("fs")
 
 function padTo2Digits(num) {

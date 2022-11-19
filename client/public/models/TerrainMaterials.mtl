@@ -1,0 +1,23 @@
+newmtl TerrainSolid
+Material Color
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+map_Kd grass.jpeg
+map_Ka grass.jpeg
+map_Ks grass.jpeg
+decal grass.jpeg
+d 1
+
+Ns 0
+
+newmtl TerrainWater
+Material Color
+Ka 0.0289912 0.242796 0.7
+Kd 0.0289912 0.242796 0.7
+Ks 0 0 0 
+
+d 1
+
+Ns 0
+

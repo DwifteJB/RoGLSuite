@@ -18,6 +18,9 @@ build/*
 
 # production
 /build
+terrain.obj
+terrain.mtl
+./terrain.obj
 
 # misc
 .DS_Store

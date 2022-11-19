@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
-const DiscordSettings = require("../../setup.json").Logging.Discord
-const Permissions = require("../../Permissions.json")
+const DiscordSettings = require("../setup.json").Logging.Discord
+const Permissions = require("../Permissions.json")
 function SendLogin(data) {
     if (DiscordSettings.Settings.Logins == true) {
         let IP = "Not Shown"
