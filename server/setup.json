@@ -1,13 +1,13 @@
 {
-    "Server_Key": "StrandedServerKeyqwq",
-    "SiteURL": "https://roglsuite-kffnaoc4fa-oa.a.run.app",
+    "Server_Key": "SecretKey",
+    "SiteURL": "",
     "DiscordOAuth": {
-        "ClientID": "1033792598344732693",
-        "ClientSecret": "ZoQ30pspa4PXC0RaBixVY44yguCLzEJA"
+        "ClientID": "x",
+        "ClientSecret": "x"
     },
     "Logging": { 
         "Discord": {
-            "WebhookURL": "https://discord.com/api/webhooks/1034175298050203688/3SPYFduYzWsZLsIaX7q-QrBo7yjRyJf7MkWIzHBbFMwGubD18b1zX9Ueg89DWR-M7JmF",
+            "WebhookURL": "x",
             "Settings": {
                 "Logins": true,
                 "PositionUpdates": true
